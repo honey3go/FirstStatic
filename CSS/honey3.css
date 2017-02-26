@@ -12,13 +12,29 @@ body{
 #Form1{
     width: 270px;
     margin: 20px 131px;
-
 }
 
 #Search{
-    border-radius: 25px;
+    border-radius: 20px;
+    border-color: white;
     width:270px;
     outline: none;
-
-    background-size: 21px 21px;
+    /*注意下面url中的路径，如果是相对路径，指的是图片相对与此CSS文件的路径，并非相对html
+    background:url(../img/search.png) no-repeat right;
+    CSS3
+    background-size: 15px;*/
+}
+#BannerDiv{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 131px;
+}
+#BannerDiv>ul li{
+    display: inline;
+    width: 60px;
+}
+#BannerDiv>ul li a{
+    color: white;
+    text-decoration: none;
 }
