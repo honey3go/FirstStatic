@@ -1,13 +1,23 @@
 body{
     margin: 0;
 }
+p{
+    font-size: 12px;
+}
+hr{
+    width: 90%;
+    height: 1px;
+
+}
 #TopFixed{
     position: fixed;
     width: 100%;
+    border-bottom:20px;
     background: rgb(64,58,68);
 }
 #TopFixed img{
     position: absolute;
+
 }
 #Form1{
     width: 270px;
@@ -37,4 +47,33 @@ body{
 #BannerDiv>ul li a{
     color: white;
     text-decoration: none;
+}
+#Main{
+    width:90%;
+    margin: 0 auto;
+    padding: 63.04px 20px 20px 20px;
+    background:rgb(204,207,203);
+}
+.MainSubDiv{
+
+}
+#Left{
+    width: 200px;
+    background: white;
+    position: absolute;
+    font-family: Arial;
+    color: rgb(64,58,68);
+    text-align: center;
+}
+#Left>img{
+    width: 150px;
+    height: 150px;
+    margin: 0 25px;
+    border-radius: 10px;
+}
+#Right{
+    background: pink;
+    margin-right: 200px;
+    position: relative;
+    left: 200px;
 }
