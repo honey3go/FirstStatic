@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css\honey3.css">
     <Link Rel="SHORTCUT ICON" href="img\icon.png">
     <style type="text/css">
-
     </style>
 </head>
 <body>
@@ -47,6 +46,9 @@
         </div>
     </div>
     <div ID="Right" class="MainSubDiv">
+        <div class="RightContent" id="MapDiv">
+            <h3>SubMap</h3>
+        </div>
         <div class="RightContent">
             <h3>Paper Boats-Tagore</h3>
             <p>Day by dayI float my paper boats one by one down the running stream.<br>
@@ -58,11 +60,55 @@
             When night comes I bury my face in my arms and dream that my paper boats float on and on under the midnight stars. <br>
             The fairies of sleep are sailing in them, and the lading is their baskets full of dreams.</p>
         </div>
-        <div class="RightContent" id="MapDiv" style="height: 200px">
-            boom
-        </div>
-
     </div>
 </div>
 </body>
+<footer>
+    <script type="text/javascript" src="source\d3.js"></script>
+    <script type="text/javascript" >
+        var widths=600;
+        var heights=450;
+        //var svg_width=document.getElementById("MapDiv");
+       // widths=svg_width.style.width;
+
+        var svg = d3.select("#MapDiv")
+                .append("svg")
+                .attr("width", widths)
+                .attr("height", heights);
+
+        var projection = d3.geo.mercator()
+                .center([107, 31])
+                .scale(500)
+                .translate([widths/2, heights*2/3]);
+
+        var path = d3.geo.path()
+                .projection(projection);
+
+        d3.json("china.json", function(d) {
+            svg.selectAll("path")
+                    .data(d.features)
+                    .enter()
+                    .append("path")
+                    .attr("stroke","#ffffff")
+                    .attr("stroke-width",1)
+                    .attr("stroke-dasharray",4, 4)
+                    .attr("fill", "#426ab3")
+                    .attr("d", path)
+                    .on("mouseover",function(d){
+                        d3.select(this)
+                                .attr("fill", "orange")
+                                .append("title")
+                                .text(function(d){
+                                    return d.properties.name;
+                                });
+                    })
+                    .on("mouseout",function(d){
+                        d3.select(this)
+                                .transition()
+                                .duration(250)
+                                .attr("fill", "#426ab3");
+                    });
+        });
+    </script>
+</footer>
 </html>
