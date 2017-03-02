@@ -9,7 +9,7 @@ p{
     border-bottom:20px;
     background: rgb(64,58,68);
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 #Header img{
     position: absolute;
@@ -44,12 +44,12 @@ p{
     text-decoration: none;
 }
 #Main{
-    width:100%;
     margin: 0 auto;
     padding: 63.04px 20px 20px 20px;
     background:white;
-    position: absolute;
-    z-index: -1;
+    position: relative;
+    /*position为relative时，若z-index为负值，则元素被置于body层后面，鼠标监听失效*/
+    z-index: 1;
 }
 .MainSubDiv{
 
